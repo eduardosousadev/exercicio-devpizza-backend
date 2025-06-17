@@ -17,6 +17,7 @@ class AuthUserService {
     })
 
     if (!user) {
+      console.error("Usuário não encontrado");
       throw new Error("User/password incorrect");
     }
 
@@ -24,6 +25,7 @@ class AuthUserService {
     const passwordMatch = await compare(password, user.password);
 
     if (!passwordMatch) {
+      console.error("Senha incorreta");
       throw new Error("User/password incorrect");
     }
 
@@ -40,6 +42,7 @@ class AuthUserService {
       }
     )
 
+    console.log("Usuário autenticado:", user.email);
     return { 
       id: user.id,
       name: user.name,

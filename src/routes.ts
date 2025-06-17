@@ -17,6 +17,7 @@ import { DetailsOrderController } from "./controllers/order/DetailsOrder.control
 import { FinishOrderController } from "./controllers/order/FinishOrder.controller";
 import { GetAllUsersController } from "./controllers/user/getAllUsers.controller";
 import { ListDraftsController } from "./controllers/draft/ListDrafts.controller";
+import { AddItemsController } from "./controllers/order/AddItems.controller";
 
 const router = Router();
 
@@ -42,6 +43,7 @@ router.get('/drafts', isAuthenticated, new ListDraftsController().handle);
 router.post('/order', isAuthenticated, new CreateOrderController().handle);
 router.delete('/order', isAuthenticated, new RemoveOrderController().handle);
 router.post('/order/addItem', isAuthenticated, new AddItemController().handle);
+router.post('/order/addItems', isAuthenticated, new AddItemsController().handle);
 router.delete('/order/removeItem', isAuthenticated, new RemoveItemController().handle);
 router.patch('/order/send', isAuthenticated, new SendOrderController().handle);
 router.get('/orders', isAuthenticated, new ListOrdersController().handle);
